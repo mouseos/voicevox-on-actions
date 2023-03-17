@@ -21,3 +21,10 @@ jobs:
         pip3 install requests pydub natsort
     - name: Run Docker container
       run: docker run --rm -p '127.0.0.1:50021:50021' voicevox/voicevox_engine:cpu-ubuntu20.04-latest & sleep 20;  python3 weather.py 016010
+    - name: Upload
+      uses: actions/upload-artifact@v3
+      with:
+        name: 気象情報（札幌）
+        path: |
+          **.wav
+        if-no-files-found: ignore
