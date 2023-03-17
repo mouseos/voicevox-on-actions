@@ -1,20 +1,14 @@
-name: Gen audio
-
-on:
-  push:
-    branches:
-      - main
+name: Voicevox Engine
+on: push
 
 jobs:
-  build:
+  voicevox-engine:
     runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Download Docker image
-      run: docker pull voicevox/voicevox_engine:cpu-ubuntu20.04-latest
-
-    - name: Run Docker container
-      run: docker run --rm -it -p '127.0.0.1:50021:50021' voicevox/voicevox_engine:cpu-ubuntu20.04-latest
+    container: #起動するコンテナイメージを指定
+      image: voicevox/voicevox_engine:cpu-ubuntu20.04-latest #指定のdockerイメージを使用
+    ports:
+      - '50021:50021'
+    steps: #dockerコンテナ内でステップを実行
+      - name: Check Voicevox Engine version
+        run: |
+          voicevox_engine --version #Voicevox Engineバージョンの確認
