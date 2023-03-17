@@ -24,7 +24,7 @@ jobs:
     - name: Copy files to audio directory
       run: |
         mkdir -p audio
-        cp **.wav audio/
+        mv **.wav audio/
     - name: Push changes to repo
       uses: stefanzweifel/git-auto-commit-action@v4
       with:
