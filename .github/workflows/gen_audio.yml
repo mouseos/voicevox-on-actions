@@ -13,10 +13,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
-    - name: Install Docker
-      run: |
-        sudo apt-get install -y docker.io
-
     - name: Download Docker image
       run: docker pull voicevox/voicevox_engine:cpu-ubuntu20.04-latest
 
