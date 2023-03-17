@@ -16,5 +16,6 @@ jobs:
           apt update
           apt install python3 python3-pip -y
           pip3 install requests pydub natsort
-          python3 ./weather.py
+          #sapporo
+          python3 ./weather.py 016010
           ls -l
