@@ -11,5 +11,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: ls
-        run: ls
+      - name: Install python
+        run: |
+          sudo apt iinstall python3 python-pip3 -y
+          pip3 install requests json pydub natsort
+          python3 ./weather.py
+          ls -l
