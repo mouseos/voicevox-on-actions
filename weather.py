@@ -122,5 +122,6 @@ text=re.sub("くもり未明","くもり。未明",text)
 text=re.sub("のち","のち、",text)
 text=re.sub("のち、、","のち、",text)
 print(text)
+
 generate_wav(text,16,1.3,"weather_info_sapporo.wav")
 
