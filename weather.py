@@ -1,7 +1,7 @@
 import requests
 import json
 import datetime
-import pytz
+from pytz import timezone
 import sys
 import re
 import wave
@@ -10,9 +10,8 @@ from pydub import AudioSegment
 from natsort import natsorted
 #エリア
 area=sys.argv[1]
-# 日本時間のタイムゾーンを設定
-jst = pytz.timezone('Asia/Tokyo')
-now = datetime.datetime.now().hour
+
+now = datetime.datetime.now(timezone('Asia/Tokyo')).hour
 
 data = json.loads(requests.get('https://weather.tsukumijima.net/api/forecast/city/'+area).text)
 
