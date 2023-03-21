@@ -24,8 +24,8 @@ jobs:
         uses: actions/setup-python@v4
         with:
           python-version: '3.x'
-          cache: 'pip'
           check-latest: true
+          cache: 'pip'
 
       - name: Install dependencies
         run: |
@@ -36,7 +36,7 @@ jobs:
         run: docker run --rm -p '127.0.0.1:50021:50021' voicevox/voicevox_engine:cpu-ubuntu20.04-latest & sleep 20; python3 weather.py 016010
 
       - name: Move files to audio directory
-        run: mv -f **.wav audio/
+        run: mv -f *.wav audio/
 
       - name: Push changes to repo
         uses: stefanzweifel/git-auto-commit-action@v4
