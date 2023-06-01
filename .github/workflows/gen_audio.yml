@@ -19,6 +19,7 @@ jobs:
       run: docker pull voicevox/voicevox_engine:cpu-ubuntu20.04-latest
     - name: Install depends
       run: |
+        sudo apt update
         sudo apt install ffmpeg curl python3 python3-pip -y
         pip3 install requests pydub natsort
     - name: Run Docker container
